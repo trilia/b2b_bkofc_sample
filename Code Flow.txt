@@ -1,0 +1,27 @@
+
+
+Code Flow:
+----------
+
+Add Entity:
+-----------
+
+  Service Implementation.add(Entity) --> AbstractServiceImpl.add(Entity) --> AbstractRepositoryImpl.save(Entity)
+  
+  AbstractServiceImpl.add() -->  	preProcess(Entity)
+									repository.save(Entity)
+									postProcess(Entity)
+									
+	
+
+Update Entity:
+--------------
+
+	Service Implementation.update(newEntity)  -->  AbstractServiceImpl.update(newEntity) --> doUpdate(newEntity, oldEntity)
+	
+	AbstractServiceImpl.update(newEntity)  -->	update(newEntity)
+												preProcess(newEntity)
+												doUpdate(newEntity, oldEntity)
+												postProcess(newEntity)
+												
+	
